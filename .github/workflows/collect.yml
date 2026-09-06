@@ -1,0 +1,32 @@
+name: Collect Delay Data
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install gtfs-realtime-bindings requests pandas
+
+      - name: Run collection script
+        run: python run_once_cloud.py
+
+      - name: Commit and push results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add delay_log.csv
+          git commit -m "Add delay data snapshot" || echo "No changes to commit"
+          git push
