@@ -1,5 +1,6 @@
 name: Collect Delay Data
-
+permissions:
+  contents: write
 on:
   schedule:
     - cron: '*/15 * * * *'
