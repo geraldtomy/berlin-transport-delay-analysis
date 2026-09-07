@@ -60,7 +60,7 @@ def run_once():
     today_str = datetime.now(berlin_tz).strftime("%Y-%m-%d")
     output_file = f"delay_log_{today_str}.csv"
     file_exists = os.path.isfile(output_file)
-    clean.to_csv(output_file, mode="a", header=not file_exists, index=False)
+    clean[["trip_id", "stop_id", "delay_min", "snapshot_time"]].to_csv(output_file, mode="a", header=not file_exists, index=False)
 
 
     print(f"[{datetime.now(berlin_tz).strftime('%H:%M:%S')}] Appended {len(clean)} records")
