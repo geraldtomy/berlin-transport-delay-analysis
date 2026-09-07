@@ -28,7 +28,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add delay_log.csv
+          git add delay_log_*.csv
           git commit -m "Add delay data snapshot" || echo "No changes to commit"
           git pull --rebase
           git push
+
+
