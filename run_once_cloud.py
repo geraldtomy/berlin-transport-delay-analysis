@@ -57,9 +57,11 @@ def run_once():
     clean = merged[(merged["delay_min"] > -30) & (merged["delay_min"] < 60)].copy()
     clean["snapshot_time"] = datetime.now(berlin_tz).isoformat()
 
-    output_file = "delay_log.csv"
+    today_str = datetime.now(berlin_tz).strftime("%Y-%m-%d")
+    output_file = f"delay_log_{today_str}.csv"
     file_exists = os.path.isfile(output_file)
     clean.to_csv(output_file, mode="a", header=not file_exists, index=False)
+
 
     print(f"[{datetime.now(berlin_tz).strftime('%H:%M:%S')}] Appended {len(clean)} records")
 
