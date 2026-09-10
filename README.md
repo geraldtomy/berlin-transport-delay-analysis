@@ -6,7 +6,7 @@ Real-time delay tracking for Berlin's public transit network, built on VBB's off
 Fetches live transit data every 15 minutes, compares it against the official schedule, computes real delay in minutes, and logs it automatically via a cloud pipeline — no manual intervention needed.
 
 ## Dashboard
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](screenshots/Screenshot01.png)
 
 ## How it works
 - **Data sources:** VBB static GTFS schedule + live GTFS-RT protobuf feed
