@@ -27,7 +27,7 @@ Fetches live transit data every 15 minutes, compares it against the official sch
 
 ## Limitations
 - Early data collection skewed toward weekend/overnight hours; more weekday/rush-hour data being collected
-- [Update as you learn more]
+- [Update more soon]
 
 ## Tech stack
 Python, pandas, GitHub Actions, Power BI
