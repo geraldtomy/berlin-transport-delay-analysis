@@ -28,6 +28,9 @@ Fetches live transit data every 15 minutes, compares it against the official sch
 ## Limitations
 - Early data collection skewed toward weekend/overnight hours; more weekday/rush-hour data being collected
 - [Update more soon]
+  
+## Status
+Data collection ran automatically every 15 minutes for about two months, with some gaps from failed runs, and has now been stopped. The repository holds the full dataset as hourly files (`delay_log_YYYY-MM-DD_HH.csv`). The dashboard above is built on the first week of data. The full dataset is too large to load into Power BI in one go, so the next step is to summarise it by hour, weekday and stop, then rebuild the dashboard on those summaries. That will also add a proper weekday-vs-weekend comparison.
 
 ## Tech stack
 Python, pandas, GitHub Actions, Power BI
